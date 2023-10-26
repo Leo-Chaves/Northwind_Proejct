@@ -1,62 +1,22 @@
-package com.example.NorthwindProject.Entities;
+package com.example.NorthwindProject.Model;
 
-import jakarta.persistence.*;
 
-@Entity
-@Table(name = "Customers")
+import lombok.Data;
+
+@Data
 public class Customer {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-
-    @Column(name = "CustomerID")
     private String customerID;
-
-    @Column(name = "CompanyName")
     private String companyName;
-
-    @Column(name = "ContactName")
     private String contactName;
-
-    @Column(name = "ContactTitle")
     private String contactTitle;
-
-    @Column(name = "Address")
     private String address;
-
-    @Column(name = "City")
     private String city;
-
-    @Column(name = "Region")
     private String region;
-
-    @Column(name = "PostalCode")
     private String postalCode;
-
-    @Column(name = "Country")
     private String country;
-
-    @Column(name = "Phone")
     private String phone;
-
-    @Column(name = "Fax")
     private String fax;
-
-    @Column(name = "HomePage")
-    private String homepage;
-
-    @ManyToOne
-    @JoinColumn(name = "EmployeeID")
-    private Employee employee;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getCustomerID() {
         return customerID;
@@ -146,26 +106,9 @@ public class Customer {
         this.fax = fax;
     }
 
-    public String getHomepage() {
-        return homepage;
-    }
-
-    public void setHomepage(String homepage) {
-        this.homepage = homepage;
-    }
-
-    public Employee getEmployee() {
-        return employee;
-    }
-
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
-    }
-
     @Override
     public String toString() {
         return "Customer{" +
-                "id=" + id +
                 ", customerID='" + customerID + '\'' +
                 ", companyName='" + companyName + '\'' +
                 ", contactName='" + contactName + '\'' +
@@ -177,8 +120,7 @@ public class Customer {
                 ", country='" + country + '\'' +
                 ", phone='" + phone + '\'' +
                 ", fax='" + fax + '\'' +
-                ", homepage='" + homepage + '\'' +
-                ", employee=" + employee +
                 '}';
     }
+
 }
