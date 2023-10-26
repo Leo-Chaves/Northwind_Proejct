@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lista de Clientes</title>
+    <link rel="stylesheet" type="text/css" href="/Css/Style.css">
+</head>
+<body>
+<h1>Lista de Clientes</h1>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Empresa</th>
+        <th>Nome do Contato</th>
+        <th>Título do Contato</th>
+        <th>Endereço</th>
+        <th>Cidade</th>
+        <th>Regiao</th>
+        <th>Codigo Postal</th>
+        <th>País</th>
+        <th>Telefone</th>
+        <th>Fax</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="customer : ${customers}">
+        <td th:text="${customer.customerID}"></td>
+        <td th:text="${customer.companyName}"></td>
+        <td th:text="${customer.contactName}"></td>
+        <td th:text="${customer.contactTitle}"></td>
+        <td th:text="${customer.address}"></td>
+        <td th:text="${customer.city}"></td>
+        <td th:text="${customer.region}"></td>
+        <td th:text="${customer.postalCode}"></td>
+        <td th:text="${customer.country}"></td>
+        <td th:text="${customer.phone}"></td>
+        <td th:text="${customer.fax}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
