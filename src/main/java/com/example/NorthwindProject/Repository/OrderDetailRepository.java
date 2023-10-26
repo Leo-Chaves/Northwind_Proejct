@@ -5,5 +5,4 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface OrderDetailRepository extends JpaRepository<OrderDetails, Integer> {
-    // Você pode adicionar métodos de consulta personalizados aqui, se necessário
 }

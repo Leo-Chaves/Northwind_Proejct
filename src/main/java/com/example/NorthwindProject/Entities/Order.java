@@ -1,139 +1,163 @@
 package com.example.NorthwindProject.Entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "orders")
+@Table(name = "Orders")
 public class Order {
     @Id
-    private int orderID;
-    private String customerID;
-    private int employeeID;
-    private LocalDate orderDate;
-    private LocalDate requiredDate;
-    private LocalDate shippedDate;
-    private int shipVia;
-    private double freight;
-    private String shipName;
-    private String shipAddress;
-    private String shipCity;
-    private String shipRegion;
-    private String shipPostalCode;
-    private String shipCountry;
+    private int OrderID;
+
+    @OneToOne
+    @JoinColumn(name = "Customers")
+    private String CustomerID;
+
+    @OneToOne
+    @JoinColumn(name = "Employees")
+    private int EmployeeID;
+    private LocalDate OrderDate;
+    private LocalDate RequiredDate;
+    private LocalDate ShippedDate;
+    private int ShipVia;
+    private double Freight;
+    private String ShipName;
+    private String ShipAddress;
+    private String ShipCity;
+    private String ShipRegion;
+    private String ShipPostalCode;
+    private String ShipCountry;
 
     public int getOrderID() {
-        return orderID;
+        return OrderID;
     }
 
     public void setOrderID(int orderID) {
-        this.orderID = orderID;
+        OrderID = orderID;
     }
 
     public String getCustomerID() {
-        return customerID;
+        return CustomerID;
     }
 
     public void setCustomerID(String customerID) {
-        this.customerID = customerID;
+        CustomerID = customerID;
     }
 
     public int getEmployeeID() {
-        return employeeID;
+        return EmployeeID;
     }
 
     public void setEmployeeID(int employeeID) {
-        this.employeeID = employeeID;
+        EmployeeID = employeeID;
     }
 
     public LocalDate getOrderDate() {
-        return orderDate;
+        return OrderDate;
     }
 
     public void setOrderDate(LocalDate orderDate) {
-        this.orderDate = orderDate;
+        OrderDate = orderDate;
     }
 
     public LocalDate getRequiredDate() {
-        return requiredDate;
+        return RequiredDate;
     }
 
     public void setRequiredDate(LocalDate requiredDate) {
-        this.requiredDate = requiredDate;
+        RequiredDate = requiredDate;
     }
 
     public LocalDate getShippedDate() {
-        return shippedDate;
+        return ShippedDate;
     }
 
     public void setShippedDate(LocalDate shippedDate) {
-        this.shippedDate = shippedDate;
+        ShippedDate = shippedDate;
     }
 
     public int getShipVia() {
-        return shipVia;
+        return ShipVia;
     }
 
     public void setShipVia(int shipVia) {
-        this.shipVia = shipVia;
+        ShipVia = shipVia;
     }
 
     public double getFreight() {
-        return freight;
+        return Freight;
     }
 
     public void setFreight(double freight) {
-        this.freight = freight;
+        Freight = freight;
     }
 
     public String getShipName() {
-        return shipName;
+        return ShipName;
     }
 
     public void setShipName(String shipName) {
-        this.shipName = shipName;
+        ShipName = shipName;
     }
 
     public String getShipAddress() {
-        return shipAddress;
+        return ShipAddress;
     }
 
     public void setShipAddress(String shipAddress) {
-        this.shipAddress = shipAddress;
+        ShipAddress = shipAddress;
     }
 
     public String getShipCity() {
-        return shipCity;
+        return ShipCity;
     }
 
     public void setShipCity(String shipCity) {
-        this.shipCity = shipCity;
+        ShipCity = shipCity;
     }
 
     public String getShipRegion() {
-        return shipRegion;
+        return ShipRegion;
     }
 
     public void setShipRegion(String shipRegion) {
-        this.shipRegion = shipRegion;
+        ShipRegion = shipRegion;
     }
 
     public String getShipPostalCode() {
-        return shipPostalCode;
+        return ShipPostalCode;
     }
 
     public void setShipPostalCode(String shipPostalCode) {
-        this.shipPostalCode = shipPostalCode;
+        ShipPostalCode = shipPostalCode;
     }
 
     public String getShipCountry() {
-        return shipCountry;
+        return ShipCountry;
     }
 
     public void setShipCountry(String shipCountry) {
-        this.shipCountry = shipCountry;
+        ShipCountry = shipCountry;
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "OrderID=" + OrderID +
+                ", CustomerID='" + CustomerID + '\'' +
+                ", EmployeeID=" + EmployeeID +
+                ", OrderDate=" + OrderDate +
+                ", RequiredDate=" + RequiredDate +
+                ", ShippedDate=" + ShippedDate +
+                ", ShipVia=" + ShipVia +
+                ", Freight=" + Freight +
+                ", ShipName='" + ShipName + '\'' +
+                ", ShipAddress='" + ShipAddress + '\'' +
+                ", ShipCity='" + ShipCity + '\'' +
+                ", ShipRegion='" + ShipRegion + '\'' +
+                ", ShipPostalCode='" + ShipPostalCode + '\'' +
+                ", ShipCountry='" + ShipCountry + '\'' +
+                '}';
     }
 }

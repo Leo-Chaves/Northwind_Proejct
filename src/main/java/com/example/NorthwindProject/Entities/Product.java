@@ -1,29 +1,64 @@
 package com.example.NorthwindProject.Entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
+import java.math.BigDecimal;
+import java.util.List;
 
 @Entity
 @Table(name = "Products")
 public class Product {
-    @Id
-    private int productID;
-    private String productName;
-    private int supplierID;
-    private int categoryID;
-    private String quantityPerUnit;
-    private double unitPrice;
-    private int unitsInStock;
-    private int unitsOnOrder;
-    private int reorderLevel;
-    private boolean discontinued;
 
-    public int getProductID() {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
+    @Column(name = "ProductID")
+    private Integer productID;
+
+    @Column(name = "ProductName")
+    private String productName;
+
+    @Column(name = "SupplierID")
+    private Integer supplierID;
+
+    @Column(name = "CategoryID")
+    private Integer categoryID;
+
+    @Column(name = "QuantityPerUnit")
+    private String quantityPerUnit;
+
+    @Column(name = "UnitPrice")
+    private BigDecimal unitPrice;
+
+    @Column(name = "UnitsInStock")
+    private Short unitsInStock;
+
+    @Column(name = "UnitsOnOrder")
+    private Short unitsOnOrder;
+
+    @Column(name = "ReorderLevel")
+    private Short reorderLevel;
+
+    @Column(name = "Discontinued")
+    private Boolean discontinued;
+
+    @OneToMany(mappedBy = "product")
+    private List<OrderDetails> orderDetails;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Integer getProductID() {
         return productID;
     }
 
-    public void setProductID(int productID) {
+    public void setProductID(Integer productID) {
         this.productID = productID;
     }
 
@@ -35,19 +70,19 @@ public class Product {
         this.productName = productName;
     }
 
-    public int getSupplierID() {
+    public Integer getSupplierID() {
         return supplierID;
     }
 
-    public void setSupplierID(int supplierID) {
+    public void setSupplierID(Integer supplierID) {
         this.supplierID = supplierID;
     }
 
-    public int getCategoryID() {
+    public Integer getCategoryID() {
         return categoryID;
     }
 
-    public void setCategoryID(int categoryID) {
+    public void setCategoryID(Integer categoryID) {
         this.categoryID = categoryID;
     }
 
@@ -59,43 +94,69 @@ public class Product {
         this.quantityPerUnit = quantityPerUnit;
     }
 
-    public double getUnitPrice() {
+    public BigDecimal getUnitPrice() {
         return unitPrice;
     }
 
-    public void setUnitPrice(double unitPrice) {
+    public void setUnitPrice(BigDecimal unitPrice) {
         this.unitPrice = unitPrice;
     }
 
-    public int getUnitsInStock() {
+    public Short getUnitsInStock() {
         return unitsInStock;
     }
 
-    public void setUnitsInStock(int unitsInStock) {
+    public void setUnitsInStock(Short unitsInStock) {
         this.unitsInStock = unitsInStock;
     }
 
-    public int getUnitsOnOrder() {
+    public Short getUnitsOnOrder() {
         return unitsOnOrder;
     }
 
-    public void setUnitsOnOrder(int unitsOnOrder) {
+    public void setUnitsOnOrder(Short unitsOnOrder) {
         this.unitsOnOrder = unitsOnOrder;
     }
 
-    public int getReorderLevel() {
+    public Short getReorderLevel() {
         return reorderLevel;
     }
 
-    public void setReorderLevel(int reorderLevel) {
+    public void setReorderLevel(Short reorderLevel) {
         this.reorderLevel = reorderLevel;
     }
 
-    public boolean isDiscontinued() {
+    public Boolean getDiscontinued() {
         return discontinued;
     }
 
-    public void setDiscontinued(boolean discontinued) {
+    public void setDiscontinued(Boolean discontinued) {
         this.discontinued = discontinued;
+    }
+
+    public List<OrderDetails> getOrderDetails() {
+        return orderDetails;
+    }
+
+    public void setOrderDetails(List<OrderDetails> orderDetails) {
+        this.orderDetails = orderDetails;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", productID=" + productID +
+                ", productName='" + productName + '\'' +
+                ", supplierID=" + supplierID +
+                ", categoryID=" + categoryID +
+                ", quantityPerUnit='" + quantityPerUnit + '\'' +
+                ", unitPrice=" + unitPrice +
+                ", unitsInStock=" + unitsInStock +
+                ", unitsOnOrder=" + unitsOnOrder +
+                ", reorderLevel=" + reorderLevel +
+                ", discontinued=" + discontinued +
+                ", orderDetails=" + orderDetails +
+                '}';
     }
 }
