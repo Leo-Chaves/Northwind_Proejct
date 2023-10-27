@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Pedidos</title>
+    <link rel="stylesheet" type="text/css" href="/Style.css">
+</head>
+<body>
+<h1>Lista de Pedidos</h1>
+<table>
+    <thead>
+    <tr>
+        <th>ID do Pedido</th>
+        <th>ID do Cliente</th>
+        <th>ID do Funcionário</th>
+        <th>Data do Pedido</th>
+        <th>Data Requerida</th>
+        <th>Data Enviada</th>
+        <th>Envio Via</th>
+        <th>Frete</th>
+        <th>Nome de Envio</th>
+        <th>Endereço de Envio</th>
+        <th>Cidade de Envio</th>
+        <th>Região de Envio</th>
+        <th>Código Postal de Envio</th>
+        <th>País de Envio</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="order : ${orders}">
+        <td th:text="${order.OrderID}"></td>
+        <td th:text="${order.CustomerID}"></td>
+        <td th:text="${order.EmployeeID}"></td>
+        <td th:text="${order.OrderDate}"></td>
+        <td th:text="${order.RequiredDate}"></td>
+        <td th:text="${order.ShippedDate}"></td>
+        <td th:text="${order.ShipVia}"></td>
+        <td th:text="${order.Freight}"></td>
+        <td th:text="${order.ShipName}"></td>
+        <td th:text="${order.ShipAddress}"></td>
+        <td th:text="${order.ShipCity}"></td>
+        <td th:text="${order.ShipRegion}"></td>
+        <td th:text="${order.ShipPostalCode}"></td>
+        <td th:text="${order.ShipCountry}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

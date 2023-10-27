@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -21,9 +22,13 @@ public class OrderController {
     private IOrderService iorderService;
 
     @GetMapping("/list")
-    public ResponseEntity<List<Order>> list(){
-        var result = iorderService.findAllOrders();
-        return new ResponseEntity<>(result, HttpStatus.OK);
+    public ModelAndView list(){
+        List<Order> orders = iorderService.findAllOrders();
+
+        ModelAndView modelAndView = new ModelAndView("Orders");
+        modelAndView.addObject("orders", orders);
+
+        return modelAndView;
 
     }
 }

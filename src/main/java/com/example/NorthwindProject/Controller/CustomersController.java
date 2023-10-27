@@ -21,7 +21,7 @@ public class CustomersController {
     public ModelAndView list() {
         List<Customer> customers = iCustomersService.findAll();
 
-        ModelAndView modelAndView = new ModelAndView("Customers"); // O nome da página HTML
+        ModelAndView modelAndView = new ModelAndView("Customers");
         modelAndView.addObject("customers", customers);
 
         return modelAndView;
