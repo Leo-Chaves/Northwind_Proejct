@@ -12,7 +12,7 @@ public interface ICustomersService {
 
     public int update(Customer customer);
 
-    public int Delete(Customer customer);
+    public int Delete(String customerId);
 
 
 }

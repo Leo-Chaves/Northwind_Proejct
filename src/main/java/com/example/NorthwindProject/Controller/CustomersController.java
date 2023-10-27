@@ -1,6 +1,7 @@
 package com.example.NorthwindProject.Controller;
 
 import com.example.NorthwindProject.Model.Customer;
+import com.example.NorthwindProject.Model.ServiceResponse;
 import com.example.NorthwindProject.Service.ICustomersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -27,4 +28,36 @@ public class CustomersController {
         return modelAndView;
     }
 
+    @PostMapping("/save")
+    public ResponseEntity<ServiceResponse> save(@RequestBody Customer customer){
+        ServiceResponse serviceResponse = new ServiceResponse();
+        int result = iCustomersService.Save(customer);
+        if(result == 1){
+            serviceResponse.setMessage("Item Salvo");
+        }
+
+        return new ResponseEntity<>(serviceResponse, HttpStatus.OK);
+    }
+
+    @PostMapping("/update")
+    public ResponseEntity<ServiceResponse> update(@RequestBody Customer customer){
+        ServiceResponse serviceResponse = new ServiceResponse();
+        int result = iCustomersService.update(customer);
+        if(result == 1){
+            serviceResponse.setMessage("Item Atualizado");
+        }
+
+        return new ResponseEntity<>(serviceResponse, HttpStatus.OK);
+    }
+
+    @GetMapping("/delete/{id}")
+    public ResponseEntity<ServiceResponse> delete(@PathVariable String id){
+        ServiceResponse serviceResponse = new ServiceResponse();
+        int result = iCustomersService.Delete(id);
+        if(result == 1){
+            serviceResponse.setMessage("Item Deletado");
+        }
+
+        return new ResponseEntity<>(serviceResponse, HttpStatus.OK);
+    }
 }

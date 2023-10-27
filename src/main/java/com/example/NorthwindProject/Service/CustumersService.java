@@ -26,16 +26,34 @@ public class CustumersService implements ICustomersService{
 
     @Override
     public int Save(Customer customer) {
-        return 0;
+       int row;
+        try{
+            row = iCustumersRepository.Save(customer);
+        }catch (Exception ex){
+            throw ex;
+        }
+        return row;
     }
 
     @Override
     public int update(Customer customer) {
-        return 0;
+        int row;
+        try{
+            row = iCustumersRepository.update(customer);
+        }catch (Exception ex){
+            throw ex;
+        }
+        return row;
     }
 
     @Override
-    public int Delete(Customer customer) {
-        return 0;
+    public int Delete(String customerId) {
+        int row;
+        try{
+            row = iCustumersRepository.Delete(customerId);
+        }catch (Exception ex){
+            throw ex;
+        }
+        return row;
     }
 }
