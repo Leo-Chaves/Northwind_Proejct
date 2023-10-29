@@ -22,8 +22,8 @@ public class CustumerRepository implements ICustumersRepository {
 
     @Override
     public int Save(Customer customer) {
-        String SQL = "INSERT INTO Customers (Address, City, Country, CompanyName, ContactName, Fax, ContactTitle, Region, PostalCode) VALUES (?,?,?,?,?,?,?,?,?)";
-        return jdbcTemplete.update(SQL, customer.getAddress(), customer.getCity(), customer.getCountry(), customer.getCompanyName(), customer.getContactName(), customer.getFax(), customer.getContactTitle(), customer.getRegion(), customer.getPostalCode());
+        String SQL = "INSERT INTO Customers (CustomerID, Address, City, Country, CompanyName, ContactName, Fax, ContactTitle, Region, PostalCode, Phone) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+        return jdbcTemplete.update(SQL, customer.getCustomerID(), customer.getAddress(), customer.getCity(), customer.getCountry(), customer.getCompanyName(), customer.getContactName(), customer.getFax(), customer.getContactTitle(), customer.getRegion(), customer.getPostalCode(), customer.getPhone());
     }
 
 
