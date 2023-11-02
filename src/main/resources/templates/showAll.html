@@ -12,6 +12,12 @@
 
 <button id="btnOrders">Pedidos</button>
 <button id="btnCustomers">Clientes</button>
+<button id="btnInsertCustomers">Inserir um cliente</button>
+<button id="btnDeletar">Deletar um cliente</button>
+<button id="btnAtualizar">Atualizar um cliente</button>
+<button id="btnInsertSales">Vendas de um funcionario pela data</button>
+<button id="btnInsertPedido">Pnserir um pedido</button>
+
 
 <script>
     document.getElementById('btnOrders').addEventListener('click', function () {
@@ -20,6 +26,26 @@
 
     document.getElementById('btnCustomers').addEventListener('click', function () {
         window.location.href = 'api/Customers/list';
+    });
+
+     document.getElementById('btnInsertCustomers').addEventListener('click', function () {
+        window.location.href = 'api/Customers/save';
+    });
+
+     document.getElementById('btnDeletar').addEventListener('click', function () {
+        window.location.href = 'api/Customers/delete';
+    });
+
+     document.getElementById('btnAtualizar').addEventListener('click', function () {
+        window.location.href = 'api/Customers/update';
+    });
+
+    document.getElementById('btnInsertSales').addEventListener('click', function () {
+        window.location.href = 'api/Sales/save';
+    });
+
+     document.getElementById('btnInsertPedido').addEventListener('click', function () {
+        window.location.href = 'api/Customers/save';
     });
 </script>
 

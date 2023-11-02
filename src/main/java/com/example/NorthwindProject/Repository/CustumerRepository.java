@@ -36,6 +36,6 @@ public class CustumerRepository implements ICustumersRepository {
     @Override
     public int Delete(String customerId) {
         String SQL = "DELETE FROM Customers WHERE CustomerID = ?";
-        return jdbcTemplete.update(SQL, customerId, customerId);
+        return jdbcTemplete.update(SQL, customerId);
     }
 }

@@ -31,13 +31,12 @@ public class CustomersController {
 
     @GetMapping("/save")
     public String home() {
-
         return "cadastro-cliente";
     }
 
     @PostMapping("/save")
     @ResponseBody
-    public String save(@RequestParam("customerID")String customerID,
+    public ModelAndView save(@RequestParam("customerID")String customerID,
                        @RequestParam("companyName") String companyName,
                        @RequestParam("contactName") String contactName,
                        @RequestParam("contactTitle") String contactTitle,
@@ -67,11 +66,11 @@ public class CustomersController {
             System.out.println("Item Salvo");
         }
 
-        return "redirect:/api/Customers/list";
+        return new ModelAndView("redirect:/api/Customers/list");
     }
 
     @PostMapping("/update")
-    public ResponseEntity<ServiceResponse> update(@RequestBody Customer customer){
+    public ResponseEntity<ServiceResponse> update(@RequestParam Customer customer){
         ServiceResponse serviceResponse = new ServiceResponse();
         int result = iCustomersService.update(customer);
         if(result == 1){
@@ -81,14 +80,20 @@ public class CustomersController {
         return new ResponseEntity<>(serviceResponse, HttpStatus.OK);
     }
 
-    @GetMapping("/delete/{id}")
-    public ResponseEntity<ServiceResponse> delete(@PathVariable String id){
+
+    @GetMapping("/delete")
+    public String delete() {
+        return "deletar-cliente";
+    }
+
+    @PostMapping("/delete")
+    public ModelAndView delete(@RequestParam("customerID") String id){
         ServiceResponse serviceResponse = new ServiceResponse();
         int result = iCustomersService.Delete(id);
         if(result == 1){
-            serviceResponse.setMessage("Item Deletado");
+            System.out.println("Item Salvo");
         }
 
-        return new ResponseEntity<>(serviceResponse, HttpStatus.OK);
+        return new ModelAndView("redirect:/api/Customers/list");
     }
 }
