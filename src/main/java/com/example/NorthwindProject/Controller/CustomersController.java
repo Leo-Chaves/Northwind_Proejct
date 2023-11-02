@@ -30,7 +30,7 @@ public class CustomersController {
     }
 
     @GetMapping("/save")
-    public String home() {
+    public String save() {
         return "cadastro-cliente";
     }
 
@@ -69,15 +69,29 @@ public class CustomersController {
         return new ModelAndView("redirect:/api/Customers/list");
     }
 
+    @GetMapping("/update")
+    public String update() {
+        return "atualizar-cliente";
+    }
+
     @PostMapping("/update")
-    public ResponseEntity<ServiceResponse> update(@RequestParam Customer customer){
-        ServiceResponse serviceResponse = new ServiceResponse();
-        int result = iCustomersService.update(customer);
+    public ModelAndView update(@RequestParam("customerID") String customerId,
+                                                  @RequestParam("companyName") String companyName,
+                                                  @RequestParam("contactName") String contactName,
+                                                  @RequestParam("contactTitle") String contactTitle,
+                                                  @RequestParam("address") String address,
+                                                  @RequestParam("city") String city,
+                                                  @RequestParam("region") String region,
+                                                  @RequestParam("postalCode") String postalCode,
+                                                  @RequestParam("country") String country,
+                                                  @RequestParam("phone") String phone,
+                                                  @RequestParam("fax") String fax){
+        int result = iCustomersService.update(customerId, companyName, contactName, contactTitle, address, city, region, postalCode, country, phone, fax);
         if(result == 1){
-            serviceResponse.setMessage("Item Atualizado");
+            System.out.println("Item Atualizado");
         }
 
-        return new ResponseEntity<>(serviceResponse, HttpStatus.OK);
+        return new ModelAndView("redirect:/api/Customers/list");
     }
 
 
@@ -91,7 +105,7 @@ public class CustomersController {
         ServiceResponse serviceResponse = new ServiceResponse();
         int result = iCustomersService.Delete(id);
         if(result == 1){
-            System.out.println("Item Salvo");
+            System.out.println("Item Deletado");
         }
 
         return new ModelAndView("redirect:/api/Customers/list");

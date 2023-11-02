@@ -36,10 +36,10 @@ public class CustumersService implements ICustomersService{
     }
 
     @Override
-    public int update(Customer customer) {
+    public int update( String customerId, String companyName, String contactName, String contactTitle, String address, String city, String region, String postalCode, String country, String phone, String fax) {
         int row;
         try{
-            row = iCustumersRepository.update(customer);
+            row = iCustumersRepository.update(customerId, companyName, contactName, contactTitle, address, city, region, postalCode, country, phone, fax);
         }catch (Exception ex){
             throw ex;
         }

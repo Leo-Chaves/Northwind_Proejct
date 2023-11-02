@@ -9,7 +9,7 @@ public interface ICustumersRepository {
 
     public int Save(Customer customer);
 
-    public int update(Customer customer);
+    public int update(String customerId, String companyName, String contactName, String contactTitle, String address, String city, String region, String postalCode, String country, String phone, String fax);
 
     public int Delete(String customerId);
 

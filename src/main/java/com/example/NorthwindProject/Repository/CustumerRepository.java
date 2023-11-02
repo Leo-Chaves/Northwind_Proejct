@@ -28,9 +28,9 @@ public class CustumerRepository implements ICustumersRepository {
 
 
     @Override
-    public int update(Customer customer) {
-        String SQL = "UPDATE Customers set ContactName = ? WHERE CustumerID = ?";
-        return jdbcTemplete.update(SQL, new Object[] {customer.getCustomerID(),customer.getAddress(),customer.getCity(),customer.getCountry(), customer.getCompanyName(), customer.getContactName(), customer.getFax(), customer.getCompanyName(), customer.getContactTitle(), customer.getRegion(),customer.getPostalCode()});
+    public int update(String customerId, String companyName, String contactName, String contactTitle, String address, String city, String region, String postalCode, String country, String phone, String fax) {
+        String SQL = "UPDATE Customers SET CompanyName = ?, ContactName = ?, ContactTitle = ?, Address = ?, City = ?, Region = ?, PostalCode = ?, Country = ?, Phone = ?, Fax = ? WHERE CustomerID = ?";
+        return jdbcTemplete.update(SQL, companyName, contactName, contactTitle, address, city, region, postalCode, country, phone, fax, customerId);
     }
 
     @Override

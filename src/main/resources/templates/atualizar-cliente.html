@@ -1,10 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Atualizar Cliente</title>
 </head>
 <body>
+<h1>Atualizar Cliente</h1>
+<form action="/api/Customers/update" method="post">
+    <label for="customerID">ID do Cliente que deseja atualizar:</label>
+    <input type="text" id="customerID" name="customerID"><br><br>
 
+    <label for="companyName">Nome da Empresa:</label>
+    <input type="text" id="companyName" name="companyName"><br><br>
+
+    <label for="contactName">Nome do Contato:</label>
+    <input type="text" id="contactName" name="contactName"><br><br>
+
+    <label for="contactTitle">Título do Contato:</label>
+    <input type="text" id="contactTitle" name="contactTitle"><br><br>
+
+    <label for="address">Endereço:</label>
+    <input type="text" id="address" name="address"><br><br>
+
+    <label for="city">Cidade:</label>
+    <input type="text" id="city" name="city"><br><br>
+
+    <label for="region">Região:</label>
+    <input type="text" id="region" name="region"><br><br>
+
+    <label for="postalCode">CEP:</label>
+    <input type="text" id="postalCode" name="postalCode"><br><br>
+
+    <label for="country">País:</label>
+    <input type="text" id="country" name="country"><br><br>
+
+    <label for="phone">Telefone:</label>
+    <input type="text" id="phone" name="phone"><br><br>
+
+    <label for="fax">Fax:</label>
+    <input type="text" id="fax" name="fax"><br><br>
+
+    <input type="submit" value="Atualizar Cliente">
+</form>
 </body>
 </html>
