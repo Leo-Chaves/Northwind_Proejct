@@ -22,4 +22,15 @@ public class OrderService implements IOrderService {
         }
         return list;
     }
+
+    @Override
+    public int save(Order order) {
+        int row;
+        try{
+            row = iOrderRepository.save(order);
+        }catch (Exception ex){
+            throw ex;
+        }
+        return row;
+    }
 }

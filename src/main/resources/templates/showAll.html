@@ -11,17 +11,21 @@
 <h1>Qual deseja visualizar:</h1>
 
 <button id="btnOrders">Pedidos</button>
+<button id="btnInsertPedido">inserir pedidos</button>
 <button id="btnCustomers">Clientes</button>
 <button id="btnInsertCustomers">Inserir um cliente</button>
 <button id="btnDeletar">Deletar um cliente</button>
 <button id="btnAtualizar">Atualizar um cliente</button>
 <button id="btnInsertSales">Vendas de um funcionario pela data</button>
-<button id="btnInsertPedido">inserir um pedidos</button>
 
 
 <script>
     document.getElementById('btnOrders').addEventListener('click', function () {
         window.location.href = 'api/Orders/list';
+    });
+
+    document.getElementById('btnInsertPedido').addEventListener('click', function () {
+        window.location.href = 'api/Orders/save';
     });
 
     document.getElementById('btnCustomers').addEventListener('click', function () {
@@ -44,9 +48,6 @@
         window.location.href = 'api/Sales/save';
     });
 
-     document.getElementById('btnInsertPedido').addEventListener('click', function () {
-        window.location.href = 'api/Customers/save';
-    });
 </script>
 
 </body>

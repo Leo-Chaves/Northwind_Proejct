@@ -8,4 +8,6 @@ public interface IOrderService {
 
     public List<Order> findAllOrders();
 
+    public int save(Order order);
+
 }
